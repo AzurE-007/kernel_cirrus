@@ -4,7 +4,7 @@ set -e
 
 export COMPILER=EVA-GCC
 
-git clone --depth=1 $repo1 -b 4.9-R msm8953 && cd msm8953
+git clone --depth=1 https://github.com/dotOS-Devices/android_kernel_xiaomi_sakura -b dot11 msm8953 && cd msm8953
 
 export BUILD_START=$(date +"%s")
 export ARCH=arm64

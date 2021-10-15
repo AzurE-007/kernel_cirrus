@@ -2,7 +2,7 @@ task:
   name: kernel
   timeout_in: 60m
   container:
-    image: geopd/builder:drone
+    dockerfile: Dockerfile
     cpu: 8
     memory: 32G
   environment:
