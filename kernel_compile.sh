@@ -2,13 +2,13 @@
 
 set -e
 
-export COMPILER=EVA-GCC
+export COMPILER=PROTON-CLANG
 
-git clone --depth=1 $repo1 -b 4.9-R msm8953 && cd msm8953
+git clone --depth=1 $repo1 -b fluid-11 raphael && cd raphael
 
 export BUILD_START=$(date +"%s")
 export ARCH=arm64
-make O=out sakura_defconfig
+make O=out raphael_defconfig
 
 eva_gcc() {
   # docker has gcc repos cloned to gcc directory.
