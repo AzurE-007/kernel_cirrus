@@ -10,6 +10,6 @@ task:
     repo1: https://github.com/AzurE-007/kernel_xiaomi_test.git
     repo2: https://github.com/AzurE-007/AnyKernel3.git
     bottoken: "ENCRYPTED[a9ce13c3a3a32cd0e0047e79244b7da9c8f007599b905744db59fd644f51673fc062e444396bdeb98c429215d860280d]"
-    chatid: "ENCRYPTED[53eef9fc3db78fad4ec4d7b2dc30b3609871389818b6bc0d12f612ee12bfdd5dad0992ba46d2b751b69f055efc0ce5df]"
+    chatid: "ENCRYPTED[!e29448621d9ea54186a6e8752c96ee4b0b0720a19e51b7bd622bfa9efedea7e21975afb5fac0f461998ff8e2519ce6e9!]!]"
   compile_script:
       - bash kernel_compile.sh
