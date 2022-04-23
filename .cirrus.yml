@@ -9,7 +9,7 @@ task:
     CIRRUS_WORKING_DIR: "/tmp/ci"
     repo1: https://github.com/AzurE-007/kernel_xiaomi_test.git
     repo2: https://github.com/AzurE-007/AnyKernel3.git
-    bottoken: "ENCRYPTED[2b2520ddb798f9e84b4a11b0c3c93ca84856e865ce0dd20242520e9a665b4ec85aa1e275098051d86ea7a64a80aebe22]"
-    chatid: "ENCRYPTED[4630cddf62a7f5f68c0e93ecc22d891cb92b73ccea021c7d6dce5dd3e182659b683ac02bba0b14a68a75d629a90902e3]"
+    bottoken: "ENCRYPTED[4630cddf62a7f5f68c0e93ecc22d891cb92b73ccea021c7d6dce5dd3e182659b683ac02bba0b14a68a75d629a90902e3]"
+    chatid: "ENCRYPTED[2b2520ddb798f9e84b4a11b0c3c93ca84856e865ce0dd20242520e9a665b4ec85aa1e275098051d86ea7a64a80aebe22]"
   compile_script:
       - bash kernel_compile.sh
