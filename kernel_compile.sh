@@ -1,6 +1,26 @@
 #!/bin/bash
 
+#Kernel building script
+
+# Bail out if script fails
 set -e
+
+# Function to show an informational message
+msg() {
+	echo
+	echo -e "\e[1;32m$*\e[0m"
+	echo
+}
+
+err() {
+	echo -e "\e[1;41m$*\e[0m"
+	exit 1
+}
+
+cdir() {
+	cd "$1" 2>/dev/null || \
+		err "The directory $1 doesn't exists !"
+}
 
 export COMPILER=PROTON-CLANG
 
@@ -89,10 +109,14 @@ esac
 export BUILD_END=$(date +"%s")
 export DIFF=$((BUILD_END - BUILD_START))
 
+msg "|| Cloning Anykernel ||"
 git clone $repo2
-cp out/arch/arm64/boot/Image.gz-dtb AnyKernel3 && cd AnyKernel3
+msg "|| Zipping into a flashable zip ||"
+cp out/arch/arm64/boot/Image.gz-dtb AnyKernel3
+cp out/arch/arm64/boot/dtbo.img AnyKernel3
+cdir AnyKernel3
 
-export ZIPNAME=Mystique-Kernel-$(TZ=Asia/Kolkata date +%Y%m%d-%H%M).zip
+export ZIPNAME=Test-Kernel-$(TZ=Asia/Kolkata date +%Y%m%d-%H%M).zip
 zip -r9 $ZIPNAME ./*
 
 curl -F document=@"$ZIPNAME" "https://api.telegram.org/bot$bottoken/sendDocument" -F chat_id="$chatid" -F "parse_mode=Markdown" -F caption="*✅ Build finished after $((DIFF / 60)) minute(s) and $((DIFF % 60)) seconds*"
