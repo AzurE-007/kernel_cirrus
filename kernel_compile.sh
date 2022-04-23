@@ -24,7 +24,7 @@ cdir() {
 
 export COMPILER=PROTON-CLANG
 
-git clone --depth=1 $KERNEL -b sapphire raphael && cd raphael
+git clone --depth=1 $repo1 -b sapphire raphael && cd raphael
 
 export BUILD_START=$(date +"%s")
 export ARCH=arm64
@@ -109,7 +109,7 @@ export BUILD_END=$(date +"%s")
 export DIFF=$((BUILD_END - BUILD_START))
 
 msg "|| Cloning Anykernel ||"
-git clone $ANYKERNEL
+git clone $repo2
 msg "|| Zipping into a flashable zip ||"
 cp out/arch/arm64/boot/Image.gz-dtb AnyKernel3
 cp out/arch/arm64/boot/dtbo.img AnyKernel3
