@@ -2,7 +2,7 @@ task:
   name: kernel
   timeout_in: 60m
   container:
-    image: ubuntu:latest
+    image: geopd/builder:drone
     cpu: 8
     memory: 32G
   environment:
@@ -12,5 +12,4 @@ task:
     BOTTOKEN: "ENCRYPTED[4630cddf62a7f5f68c0e93ecc22d891cb92b73ccea021c7d6dce5dd3e182659b683ac02bba0b14a68a75d629a90902e3]"
     CHATID: "ENCRYPTED[2b2520ddb798f9e84b4a11b0c3c93ca84856e865ce0dd20242520e9a665b4ec85aa1e275098051d86ea7a64a80aebe22]"
   compile_script:
-      - apt-get update && apt-get install -y bison build-essential bc bison curl libssl-dev git zip python flex cpio
       - bash kernel_compile.sh
