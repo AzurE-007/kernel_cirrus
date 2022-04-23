@@ -23,8 +23,8 @@ cdir() {
 }
 
 export COMPILER=PROTON-CLANG
-
-git clone --depth=1 $KERNEL -b ruby raphael && cd raphael
+,
+git clone --depth=1 $KERNEL -b sapphire raphael && cd raphael
 
 export BUILD_START=$(date +"%s")
 export ARCH=arm64
