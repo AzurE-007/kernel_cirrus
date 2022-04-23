@@ -50,8 +50,8 @@ proton_clang() {
   build_commands() {
           make -j"$(nproc --all)" \
           O=out \
-          CC=ccache clang \
-          CXX=ccache clang++ \
+          CC="ccache clang" \
+          CXX="ccache clang++" \
           CROSS_COMPILE=aarch64-linux-gnu- \
           CROSS_COMPILE_ARM32=arm-linux-gnueabi- \
           LD=ld.lld
