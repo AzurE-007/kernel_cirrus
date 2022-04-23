@@ -24,7 +24,7 @@ cdir() {
 
 export COMPILER=PROTON-CLANG
 
-git clone --depth=1 $repo1 -b fluid-11 raphael && cd raphael
+git clone --depth=1 $KERNEL -b ruby raphael && cd raphael
 
 export BUILD_START=$(date +"%s")
 export ARCH=arm64
@@ -110,7 +110,7 @@ export BUILD_END=$(date +"%s")
 export DIFF=$((BUILD_END - BUILD_START))
 
 msg "|| Cloning Anykernel ||"
-git clone $repo2
+git clone $ANYKERNEL
 msg "|| Zipping into a flashable zip ||"
 cp out/arch/arm64/boot/Image.gz-dtb AnyKernel3
 cp out/arch/arm64/boot/dtbo.img AnyKernel3
@@ -119,4 +119,4 @@ cdir AnyKernel3
 export ZIPNAME=Test-Kernel-$(TZ=Asia/Kolkata date +%Y%m%d-%H%M).zip
 zip -r9 $ZIPNAME ./*
 
-curl -F document=@"$ZIPNAME" "https://api.telegram.org/bot$bottoken/sendDocument" -F chat_id="$chatid" -F "parse_mode=Markdown" -F caption="*✅ Build finished after $((DIFF / 60)) minute(s) and $((DIFF % 60)) seconds*"
+curl -F document=@"$ZIPNAME" "https://api.telegram.org/bot$BOTTOKEN/sendDocument" -F chat_id="$CHATID" -F "parse_mode=Markdown" -F caption="*✅ Build finished after $((DIFF / 60)) minute(s) and $((DIFF % 60)) seconds*"
